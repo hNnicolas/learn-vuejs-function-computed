@@ -29,6 +29,8 @@ export default defineConfigWithVueTs(
       'prefer-const': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
+      'vue/multi-word-component-names': 'off',
+      'vue/valid-v-for': 'off',
     },
   },
 )
