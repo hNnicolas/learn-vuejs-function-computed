@@ -31,6 +31,7 @@ export default defineConfigWithVueTs(
       '@typescript-eslint/no-unused-expressions': 'off',
       'vue/multi-word-component-names': 'off',
       'vue/valid-v-for': 'off',
+      'vue/require-v-for-key': 'off',
     },
   },
 )
