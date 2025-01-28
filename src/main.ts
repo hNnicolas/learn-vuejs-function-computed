@@ -1,8 +1,5 @@
 import { createApp } from 'vue'
-// import Product from './Product.vue'
 import App from './App.vue'
+import { router } from './router'
 
-const app = createApp(App)
-// app.component('Product', Product)
-
-app.mount('#app')
+createApp(App).use(router).mount('#app')

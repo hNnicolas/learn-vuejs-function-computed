@@ -8,31 +8,21 @@ const state = reactive<{
 }>({
   open: false,
 })
-
-defineProps<{
-  page: Page
-}>()
-
-const emit = defineEmits<{
-  (e: 'navigate', page: Page): void
-}>()
 </script>
 
 <template>
   <header class="px-20 d-flex flex-row align-items-center">
     <a href="#" class="d-flex flex-row align-items-center mr-20">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" />
-      <span class="logo">Dyma</span>
+      <span class="logo">Le Boncoin numérique</span>
     </a>
     <div class="d-flex flex-row align-items-center flex-fill actions-container">
       <ul class="d-flex flex-row flex-fill hide-xs flex-fill">
         <li class="mr-10">
-          <a :class="{ active: page === 'Boutique' }" @click="emit('navigate', 'Boutique')"
-            >Boutique</a
-          >
+          <router-link to="/boutique">Boutique</router-link>
         </li>
         <li>
-          <a :class="{ active: page === 'Admin' }" @click="emit('navigate', 'Admin')">Admin</a>
+          <router-link to="/admin">Admin</router-link>
         </li>
       </ul>
       <ul class="d-flex flex-row hide-xs">
@@ -49,12 +39,10 @@ const emit = defineEmits<{
         <Transition>
           <ul @click="state.open = false" v-if="state.open" class="menu card">
             <li>
-              <a :class="{ active: page === 'Boutique' }" @click="emit('navigate', 'Boutique')"
-                >Boutique</a
-              >
+              <router-link to="/boutique">Boutique</router-link>
             </li>
             <li>
-              <a :class="{ active: page === 'Admin' }" @click="emit('navigate', 'Admin')">Admin</a>
+              <router-link to="/admin">Admin</router-link>
             </li>
             <li>
               <a href="#">Inscription</a>
@@ -95,10 +83,6 @@ header {
     @include mixins.sm {
       display: none;
     }
-  }
-
-  a.active {
-    text-decoration: underline;
   }
 
   .actions-container {
